@@ -1,0 +1,32 @@
+@{
+  Layout="Shared/_Layout.cshtml";
+}
+<div class="container">
+
+  <div class="row jumbotron">
+    <h1>Palindrome Checker</h1>
+  </div>
+
+  <div class="row">
+    <form class="" action="/result" method="post">
+      <label for="user-word">Enter a Word You Think is a Palindrome</label>
+      <input type="text" name="user-word">
+      <button class="btn" type="submit" name="button">Check It!</button>
+    </form>
+  </div>
+
+
+  <div class="row">
+@if (@Model != null)
+{
+     @if (@Model.IsPalindrome() == true)
+    {
+        <h2>Congrats! @Model.GetUserInput() is a palindrome!</h2>
+    }
+    else
+    {
+        <h2>You suck! @Model.GetUserInput() ain't no palindrome...</h2>
+    }
+
+}
+</div>
